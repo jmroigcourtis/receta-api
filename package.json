@@ -1,0 +1,28 @@
+{
+  "name": "recetas_app",
+  "version": "1.0.0",
+  "description": "Aplicación para buscar recetas en base a los ingredientes que tenemos en casa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "start:dev": "nodemon index.js \n echo DEV"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u0016https://github.com/jmroigcourtis/recetapp.git"
+  },
+  "keywords": [
+    "node",
+    "app",
+    "JavaScript",
+    "API"
+  ],
+  "author": "Juan Manuel Roig Courtis",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21"
+  }
+}
