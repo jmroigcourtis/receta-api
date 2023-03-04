@@ -1,0 +1,12 @@
+{
+    "receta_01": {
+        "id": 1,
+        "name": "Pure de papas",
+        "ingredientes": {
+            "ingredientes_01": "Papa (Con o sin cascara)",
+            "ingredientes_02": "Leche",
+            "ingredientes_03": "Manteca (Opcional)",
+            "ingredientes_04": "Nuez moscada"
+        }
+    }
+}
