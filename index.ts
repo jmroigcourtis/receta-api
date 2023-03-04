@@ -9,12 +9,12 @@ require("dotenv").config();
 let apiData = require("./Data/api.json");
 
 app.listen(process.env.PORT);
-app.get("/recetas", (req: Request, res: Response) => {
+app.get("/api/recetas", (req: Request, res: Response) => {
   res.json(apiData);
   console.log(apiData);
 });
 
-app.get("/recetas/:nombre", (req: Request, res: Response) => {
+app.get("/api/recetas/:nombre", (req: Request, res: Response) => {
   const { nombre } = req.params;
   if (nombre.includes("papa") || nombre.includes('pure')){
       res.json({
@@ -26,7 +26,7 @@ app.get("/recetas/:nombre", (req: Request, res: Response) => {
     }
   });
 
-app.get("/recetas/:recetaID"), (req: Request, res:Response) => {
+app.get("/api/recetas/:recetaID"), (req: Request, res:Response) => {
     const { recetaID } = req.params
     const { id } = apiData.receta_01
     console.log(`${recetaID} \n ${id}`)
