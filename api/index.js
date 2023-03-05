@@ -1,6 +1,5 @@
 
-let express = require("express");
-let app = express();
+let app = require("express")();
 require("dotenv").config();
 
 /* Data */
@@ -9,11 +8,15 @@ let apiData = require("../Data/api.json");
 app.listen(process.env.PORT || 3000);
 
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(404) ? res.json('Error') : res.send('Hola')
 })
 
 app.get("/api/recetas", (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.json(apiData);
   console.log(apiData);
 });
@@ -21,9 +24,12 @@ app.get("/api/recetas", (req, res) => {
 app.get("/api/recetas/:nombre", (req, res) => {
   const { nombre } = req.params;
   if (nombre.includes("papa") || nombre.includes('pure')){
-      res.json({
-      });
+      res.setHeader('Content-Type', 'text/html');
+      res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+      res.json({apiData});
     } else {
+      res.setHeader('Content-Type', 'text/html');
+      res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
       res.json({
         message: "Error en la busqueda",
       });
