@@ -2,10 +2,10 @@
   "name": "recetas_app",
   "version": "1.0.0",
   "description": "Aplicación para buscar recetas en base a los ingredientes que tenemos en casa.",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "start:dev": "nodemon index.ts \n echo DEV"
+    "start:dev": "nodemon api/index.js \n echo DEV"
   },
   "repository": {
     "type": "git",
