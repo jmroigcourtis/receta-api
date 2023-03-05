@@ -5,16 +5,17 @@ require("dotenv").config();
 /* Data */
 let apiData = require("../Data/api.json");
 
-app.use(express.json())
-
 app.listen(process.env.PORT);
 
 
 app.get('/api', (req, res) => {
+  res.setHeader('Content-Type', 'application/json' )
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(404) ? res.json('Error') : res.send('Hola')
 })
 
 app.get("/api/recetas", (req, res) => {
+  res.setHeader('Content-Type', 'application/json' )
   res.json(apiData);
   console.log(apiData);
 });
