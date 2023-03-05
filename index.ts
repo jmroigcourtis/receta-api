@@ -1,4 +1,3 @@
-import { query_id } from './query.interface';
 import {Request, Response} from 'express'
 
 let express = require("express");
@@ -9,6 +8,13 @@ require("dotenv").config();
 let apiData = require("./Data/api.json");
 
 app.listen(process.env.PORT);
+
+const absolutePath = __dirname + '/views/index.html'
+
+app.get('/', (req: Request, res: Response) => {
+  res.sendFile(absolutePath)
+})
+
 app.get("/api/recetas", (req: Request, res: Response) => {
   res.json(apiData);
   console.log(apiData);
