@@ -10,7 +10,7 @@ app.listen(process.env.PORT || 3000);
 
 
 app.get('/', (req, res) => {
-  res.send('API Test')
+  res.status(404) ? res.json('Error') : res.send('Hola')
 })
 
 app.get("/api/recetas", (req, res) => {
