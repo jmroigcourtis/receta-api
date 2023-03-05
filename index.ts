@@ -32,3 +32,5 @@ app.get("/recetas/:recetaID"), (req: Request, res:Response) => {
     console.log(`${recetaID} \n ${id}`)
     return id === 1 && res.json({id: recetaID})
  }
+
+ module.exports = app
