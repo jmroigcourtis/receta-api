@@ -1,26 +1,24 @@
-import {Request, Response} from 'express'
 
 let express = require("express");
 let app = express();
 require("dotenv").config();
 
 /* Data */
-let apiData = require("./Data/api.json");
+let apiData = require("../Data/api.json");
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 3000);
 
-const absolutePath = __dirname + '/views/index.html'
 
-app.get('/', (req: Request, res: Response) => {
-  res.sendFile(absolutePath)
+app.get('/', (req, res) => {
+  res.send('API Test')
 })
 
-app.get("/api/recetas", (req: Request, res: Response) => {
+app.get("/api/recetas", (req, res) => {
   res.json(apiData);
   console.log(apiData);
 });
 
-app.get("/api/recetas/:nombre", (req: Request, res: Response) => {
+app.get("/api/recetas/:nombre", (req, res) => {
   const { nombre } = req.params;
   if (nombre.includes("papa") || nombre.includes('pure')){
       res.json({
@@ -32,7 +30,7 @@ app.get("/api/recetas/:nombre", (req: Request, res: Response) => {
     }
   });
 
-app.get("/api/recetas/:recetaID"), (req: Request, res:Response) => {
+app.get("/api/recetas/:recetaID"), (req, res) => {
     const { recetaID } = req.params
     const { id } = apiData.receta_01
     console.log(`${recetaID} \n ${id}`)
